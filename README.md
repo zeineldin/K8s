@@ -37,7 +37,7 @@ Simple K8s Examples
 -------------------------------
 
 ### apply deployment from a file 
-```kubectl apply -f <deployment_file>
+```kubectl apply -f <deployment_file>```
 
 ### apply service from a file
-```kubectl apply -f <service_file>
+```kubectl apply -f <service_file>```
