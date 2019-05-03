@@ -1,43 +1,43 @@
 Simple K8s Examples 
 
-##  apply the deployment 
+###  apply the deployment 
 ```kubectl run  webserver --image=nginx  --port= 80 -- replicas=2```
 
 ### Expose the deployment into service
 ```kubectl expose deployment webserver  --name web-service  --type=LoadBalancer --port=80```
 
-# scale the pods 
+### scale the pods 
 ```kubectl scale --replicas=4 deployment/webserver```
 
-# check all pods 
+### check all pods 
 ```kubectl get pods```
 
-# check all services 
+### check all services 
 ```kubectl get service```
 
-# delete pods 
+### delete pods 
 ```kubectl delete pod  <pod_name> ```
 
-# check service URL
+### check service URL
 ```minikube service <service_name> --url```
 
-# delete servie 
+### delete servie 
 ```kubectl delete services <service_name>``` 
 
-# delete pods 
+### delete pods 
 ```kubectl delete pos <pod_name>```
 
-# delete all pods 
+### delete all pods 
 ```kubectl delete pods --all```
 
-# login to the pods
+### login to the pods
 ``` kubectl exec -it <pos_name>  -- /bin/bash```
 
 
 -------------------------------
 
-#apply deployment from a file 
+### apply deployment from a file 
 ```kubectl apply -f <deployment_file>
 
-#apply service from a file
+### apply service from a file
 ```kubectl apply -f <service_file>
