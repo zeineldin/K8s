@@ -1,9 +1,9 @@
 Simple K8s Examples 
 
-# apply the deployment 
+-  apply the deployment 
 ```kubectl run  webserver --image=nginx  --port= 80 -- replicas=2```
 
-# Expose the deployment into service
+* Expose the deployment into service
 ```kubectl expose deployment webserver  --name web-service  --type=LoadBalancer --port=80```
 
 # scale the pods 
