@@ -9,4 +9,5 @@ spec:
   - name: k8s-pod-demo
     image: mzain/k8s-java-app:1
     ports:
-    - containerPort: 8080
+    - name: tomcat-port
+      containerPort: 8080
