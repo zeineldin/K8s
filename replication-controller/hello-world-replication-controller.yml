@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: helloworld-controllers
+spec:
+  replicas: 4
+  selector:
+    app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+      - name: k8s-pod-demo
+        image: mzain/k8s-java-app
+        ports:
+        - name: java-port
+          containerPort: 8080
