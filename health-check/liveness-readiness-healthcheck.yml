@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: liveness-readiness
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: devops-app
+    spec:
+      containers:
+      - name: k8s-demo
+        image: nginx
+        ports:
+        - name: nginx-port
+          containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /
+            port: devops-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 20
+        readinessProbe:
+          httpGet:
+            path: /
+            port: nginx-port
+          initialDelaySeconds: 15
+          timeoutSeconds: 20
