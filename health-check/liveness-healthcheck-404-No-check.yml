@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-deployment
 spec:
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
@@ -15,9 +15,3 @@ spec:
         ports:
         - name: nginx-port
           containerPort: 80
-        livenessProbe:
-          httpGet:
-            path: /
-            port: nginx-port
-          initialDelaySeconds: 15
-          timeoutSeconds: 10

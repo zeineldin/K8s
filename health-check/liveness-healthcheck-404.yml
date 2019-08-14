@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-deployment
 spec:
-  replicas: 2
+  replicas: 4
   template:
     metadata:
       labels:
@@ -17,7 +17,7 @@ spec:
           containerPort: 80
         livenessProbe:
           httpGet:
-            path: /
+            path: /error-404
             port: nginx-port
           initialDelaySeconds: 15
-          timeoutSeconds: 10
+          timeoutSeconds: 20
