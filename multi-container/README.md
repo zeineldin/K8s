@@ -4,4 +4,8 @@
 
 OR 
 
-```kubectl exec -it <pod_name /bin/bash>```
+```kubectl exec -it mc1 -c 1st <pod_name /bin/bash>```
+
+# To access the 2nd container 
+
+```#kubectl exec -it mc1 -c 2nd /bin/bash```
