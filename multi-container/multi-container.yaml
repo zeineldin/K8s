@@ -1,10 +1,23 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mc1
+  labels:
+    run: multi-nginx
+  name: multi-container
 spec:
+  volumes:
+  - name: storage
+    emptyDir: {}
+
   containers:
-  - name: 1st
-    image: nginx
-  - name: 2nd
-    image: redis
+  - image: nginx
+    name: nginx
+    volumeMounts:
+    - name: storage
+      mountPath: /mnt
+
+  - image: tomcat
+    name: tomcat
+    volumeMounts:
+    - name: storage
+      mountPath: /mnt
