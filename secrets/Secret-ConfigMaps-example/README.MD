@@ -2,6 +2,8 @@
 
 
 ### Create certificate files 
+`openssl genrsa -out nginx.key 2048`
+`openssl req -new -x509 -key nginx.key -out nginx.cert -days 3650 -subj /CN=www.devopsarea.com`
 `openssl req -newkey rsa:2048 -nodes -keyout nginx.key -x509 -days 365 -out nginx.crt`
 
 ### Create secret from this certificate 
