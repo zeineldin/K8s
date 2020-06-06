@@ -12,4 +12,5 @@ kubectl create configmap nginxconfigmap --from-file=default.conf
 # Crete Config map from index.html
 kubectl create configmap nginxindexconfigmap--from-file=index.html
 
+# check using
 curl -kI https://<IP>:<PORT>
