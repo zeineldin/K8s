@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: nginx
+  name: init-container-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: nginx
+  template:
+    metadata:
+      labels:
+        run: nginx
+    spec:
+      volumes:
+      - name: shared-vol
+        emptyDir: {}
+      initContainers:
+      - name: busybox
+        image: busybox
+        volumeMounts:
+        - name: shared-vol
+          mountPath: /nginx-data
+        command: ["/bin/sh"]
+        args: ["-c", "echo 'DevOps' > /nginx-data/index.html"]
+      containers:
+      - image: nginx
+        name: nginx
+        volumeMounts:
+        - name: shared-vol
+          mountPath: /usr/share/nginx/html
