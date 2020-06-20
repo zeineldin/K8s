@@ -18,7 +18,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: devops-port
+            port: nginx-port
           initialDelaySeconds: 15
           timeoutSeconds: 20
         readinessProbe:
