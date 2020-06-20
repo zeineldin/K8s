@@ -1,0 +1,19 @@
+# please check https://crontab.guru/
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: helloworld-cronjob
+spec:
+  schedule: "* * * * *"
+# successfulJobsHistoryLimit: 2
+# failedJobsHistoryLimit: 2 
+# suspend: true 
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: busybox
+            image: busybox
+            command: ["echo", "Hello DevOpss"]
+          restartPolicy: Never

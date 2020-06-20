@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: helloworld-job
+spec:
+#  completions: 2 
+#  parallelism: 3
+#  backoffLimit: 2
+#  activeDeadlineSeconds: 10
+  template:
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        #command: ["echo", "Hello DevOps :) "]
+        # command: ["ls", "/devop"]
+        command: ["sleep", "20"]
+      restartPolicy: Never
