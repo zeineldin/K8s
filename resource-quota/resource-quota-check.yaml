@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: resource-quota
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: compute-quota
+  namespace: resource-quota
+spec:
+  hard:
+    requests.cpu: "1"
+    requests.memory: 1Gi
+    limits.cpu: "2"
+    limits.memory: 2Gi
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: object-quota
+  namespace: resource-quota
+spec:
+  hard:
+    configmaps: "15"
+    persistentvolumeclaims: "4"
+    replicationcontrollers: "20"
+    secrets: "11"
+    services: "12"
+    services.loadbalancers: "3"
