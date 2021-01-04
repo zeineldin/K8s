@@ -1,10 +1,11 @@
 apiVersion: v1
-kind: Pod
+kind: pod
 metadata:
-  labels:
-    test: liveness
   name: liveness-exec
 spec:
+  selector:
+    matchLabels:
+      app: devops-app
   containers:
   - name: liveness
     image: k8s.gcr.io/busybox
